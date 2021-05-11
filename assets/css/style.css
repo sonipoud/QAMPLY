@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#scores {
+    text-align: left;
+    color: blueviolet;
+    padding-left: 10px;
+}
+
+#timer {
+    text-align: right;
+    color: crimson;
+    padding-right: 10px;
+}
