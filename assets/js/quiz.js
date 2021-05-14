@@ -5,13 +5,13 @@ var choicesEl = document.querySelector("#choices");
 var resultsEl = document.querySelector("#results");
 var timerEl = document.querySelector("#timer");
 var buttonEl = document.querySelector("#start");
-// var scoresEl = document.querySelector("#scores");
+var scoresEl = document.querySelector("#scores");
 
 
 var questionIndex = 0;
 var count = 0;
 
-var time = 10;
+var time = 30;
 var intervalId;
 
 
@@ -40,17 +40,16 @@ var questions = [
     },
 ];
 
-function start(){
+function start() {
     timerEl.textContent = time;
-    intervalId = setInterval(function(){
+    intervalId = setInterval(function () {
         time--;
         timerEl.textContent = time;
-
-        if (time === 0){
+        if (time <= 0) {
             finishQuiz();
         }
     }, 1000);
-    
+
     buildQuiz();
 };
 
@@ -60,53 +59,45 @@ function buildQuiz() {
 
     choicesEl.innerHTML = "";
     resultsEl.innerHTML = "";
-    
+
     //for loop method
     for (var i = 0; i < questions[questionIndex].choices.length; i++) {
         var questionChoicesItem = document.createElement("li");
         questionChoicesItem.textContent = questions[questionIndex].choices[i];
-        questionChoicesItem.addEventListener("click", function(event){
+        questionChoicesItem.addEventListener("click", function (event) {
             showResults(event.target.innerText);
         });
         choicesEl.append(questionChoicesItem);
     }
-    //added function for the atomatic next question after the time interval 
-    // function nextQuestion() {
-    //     questionIndex++;
-    // }
-    // if (time === 0) {
-    //     updateTime();
-    //     return;
-    // }
-    //putting time interval between questions
-    // setTimeInterval(nextQuestion, 3000);
 };
 
 function nextQuestion() {
     questionIndex++;
+    if (questionIndex === questions.length) {
+        time = 0;
+    }
     buildQuiz();
 }
 //added function of the results if the customer choses correct answer or wrong answer
 function showResults(answer) {
-console.log(answer, questions[questionIndex].answer);
-    if (answer === questions[questionIndex].answer){
+    if (answer === questions[questionIndex].answer) {
         resultsEl.textContent = "Correct";
-        console.log(answer);
         count++;
-        nextQuestion();
     } else {
         resultsEl.textContent = "Incorrect";
-        nextQuestion();
+        time = time - 5;
+        timerEl.textContent = time;
     }
+    setTimeout(nextQuestion, 1000);
 };
 
-// added function 
-function finishQuiz () {
+// added function for the finishquiz
+function finishQuiz() {
     clearInterval(intervalId);
     var game = document.game;
-    game.innerHTML = " You have scored " + count;
+    game.innerHTML = " All Done, You have scored " + count;
 }
-// buildQuiz();
+
 buttonEl.addEventListener("click", start);
 
 
