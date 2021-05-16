@@ -6,12 +6,11 @@ var resultsEl = document.querySelector("#results");
 var timerEl = document.querySelector("#timer");
 var buttonEl = document.querySelector("#start");
 var scoresEl = document.querySelector("#scores");
-// var formEl = document.querySelector("#form");
 
 var questionIndex = 0;
 var count = 0;
 
-var time = 10;
+var time = 30;
 var intervalId;
 
 
@@ -39,6 +38,7 @@ var questions = [
     },
 ];
 
+//function for the timer to start
 function start() {
     timerEl.textContent = time;
     intervalId = setInterval(function () {
@@ -70,6 +70,7 @@ function buildQuiz() {
     }
 };
 
+//function for the next question to occur 
 function nextQuestion() {
     questionIndex++;
     if (questionIndex === questions.length) {
@@ -84,10 +85,10 @@ function nextQuestion() {
 //added function of the results if the customer choses correct answer or wrong answer
 function showResults(answer) {
     if (answer === questions[questionIndex].answer) {
-        resultsEl.textContent = "Correct";
+        resultsEl.textContent = "Correct!";
         count++;
     } else {
-        resultsEl.textContent = "Incorrect";
+        resultsEl.textContent = "Incorrect!";
         time = time - 5;
         timerEl.textContent = time;
     }
@@ -100,24 +101,59 @@ function finishQuiz() {
     var body = document.body;
     body.innerHTML = " All Done, You have scored " + count;
 
-        var form = document.createElement("form");
-        form.setAttribute("method", "post");
-        form.setAttribute("action", "submit.php");
+    //created form to write iniitials
+    var form = document.createElement("form");
+    form.setAttribute("method", "post");
+    form.setAttribute("action", "submit.php");
 
-        var initials = document.createElement("input");
-        initials.setAttribute("type", "text");
-        initials.setAttribute("placeholder", "Enter your Initials");
+    var initials = document.createElement("input");
+    initials.setAttribute("type", "text");
+    initials.setAttribute("placeholder", "Enter your Initials");
 
-        var submit = document.createElement("input");
-        submit.setAttribute("type", "submit");
-        submit.setAttribute("value", "submit");
+    var submit = document.createElement("input");
+    submit.setAttribute("type", "submit");
+    submit.setAttribute("value", "Submit");
 
-        form.appendChild(initials);
-        form.appendChild(submit);
-        body.appendChild(form);
+    form.appendChild(initials);
+    form.appendChild(submit);
+    body.appendChild(form);
+
+    // event listener to capture initials and local storage for initials and score
+    // submit.addEventListener("click", function (event) {
+
+
+    //     var initials = createInput.value;
+
+    //     if (initials === null) {
+
+    //         console.log("No value entered!");
+
+    //     } else {
+    //         var finalScore = {
+    //             initials: initials,
+    //             score: timeRemaining
+    //         }
+    //         console.log(finalScore);
+
+    //         var scores = localStorage.getItem("scores");
+    //         if (scores === null) {
+    //             scores = [];
+    //         } else {
+    //             scores = JSON.parse(scores);
+    //         }
+    //         scores.push(finalScore);
+
+    //     }
+    //     var newScore = JSON.stringify(scores);
+    //     localStorage.setItem("scores", newScore);
+    //     // Travels to final page
+    //     window.location.replace("./highscore.html");
+    // }
+
+    // });
+
 
 };
-
 
 //timer to start
 buttonEl.addEventListener("click", start);

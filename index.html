@@ -9,30 +9,24 @@
     <title> Code Quiz Challenge </title>
 </head>
 
-<body class="wrapper">
-    <div>
-        <div id="scores" class="scores">View High Scores</div>
-        <div id="timer" class="timer">Timer</div>
-    </div>
+<body>
 
-    <div>
+    <div class="wrapper">
+        <a href="highscore.html">View High Scores</a>
+
+        <div id="timer" class="timer">Timer</div>
+
         <h1> Coding Quiz Challenge </h1>
         <p> Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
             answers will penalize your score/time by five seconds!</p>
+
+        <div id="questions" class="questions"></div>
+
+        <ul id="choices" class="style"></ul>
+        <div id="results" class="results"></div>
+        <button id="start" class="btn">Start Quiz</button>
+
     </div>
-
-    <div id="questions" class="questions"></div>
-    <ul id="choices" class="style"></ul>
-    <div id="results" class="results"></div>
-
-
-    <button id="start" class="btn">Start Quiz</button>
-
-    <!-- <form id= "form">
-        <div>
-            <input type = "text" placeholder="Enter your Initials" />
-        </div>
-    </form> -->
 
     <script src="./assets/js/quiz.js"></script>
 </body>

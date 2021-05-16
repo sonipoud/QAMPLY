@@ -21,22 +21,20 @@ body {
     padding-left: 20px;
 }
 
-.style {
+li {
     list-style: none;
-    /* border: none;
+    margin-top: 10px;
+    width: 80%;
+    font-size: 18px;
+    border: none;
     border-radius: 12px;
+    padding: 5px 15px;
     background-color: cyan;
-    padding: 10px 15px;
-    line-height: 15px;
-    margin: 20px 16px 16px 20px;
-    display:flex;
-    flex-direction: column;
- */
-
+    cursor: pointer;
 }
 
 .timer {
-    text-align: right;
+    float: right;
     color: crimson;
     padding-right: 20px;
 }
@@ -47,21 +45,22 @@ p {
 }
 
 .btn {
-    border: none;
     background-color: cyan;
     border-radius: 12px;
     font-size: 20px;
     line-height: 22px;
-    margin: 16px 16px 16px 20px;
     padding: 10px 15px;
     cursor: pointer;
     display: inline-block;
-    width: auto;
-    text-align: center;
     margin-left: 43%;
-
 }
 
 .questions {
     font-size: 20px;
 }
+
+  @media screen and (max-width:800px) {
+    .wrapper {
+        position: absolute;
+    }
+  };
