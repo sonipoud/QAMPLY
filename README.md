@@ -17,8 +17,8 @@ A website about a questions on a code, relatively a quiz. The person has to clic
 
 ## Screenshot
 ![Screenshot 1](./assets/images/ScreenShot1.png)
-![Screenshot 2](./assets/images/Screenshot2.png)
-![Screenshot 3](./assets/images/Screenshot3.png)
+![Screenshot 2](./assets/images/ScreenShot2.png)
+![Screenshot 3](./assets/images/ScreenShot3.png)
 
 
 ---
