@@ -6,8 +6,6 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -15,11 +13,6 @@ body {
     padding-top: 30px;
     padding-left: 20px;
     padding-right: 20px;
-}
-
-h1,
-p {
-  text-align: center;  
 }
 
 .scores {
@@ -30,6 +23,16 @@ p {
 
 .style {
     list-style: none;
+    /* border: none;
+    border-radius: 12px;
+    background-color: cyan;
+    padding: 10px 15px;
+    line-height: 15px;
+    margin: 20px 16px 16px 20px;
+    display:flex;
+    flex-direction: column;
+ */
+
 }
 
 .timer {
@@ -38,16 +41,27 @@ p {
     padding-right: 20px;
 }
 
+h1,
+p {
+    text-align: center;
+}
+
 .btn {
     border: none;
     background-color: cyan;
     border-radius: 12px;
     font-size: 20px;
     line-height: 22px;
-    margin: 20px 16px 16px 20px;
+    margin: 16px 16px 16px 20px;
     padding: 10px 15px;
-    text-align: center;
     cursor: pointer;
     display: inline-block;
     width: auto;
+    text-align: center;
+    margin-left: 43%;
+
+}
+
+.questions {
+    font-size: 20px;
 }

@@ -6,14 +6,13 @@ var resultsEl = document.querySelector("#results");
 var timerEl = document.querySelector("#timer");
 var buttonEl = document.querySelector("#start");
 var scoresEl = document.querySelector("#scores");
-
+// var formEl = document.querySelector("#form");
 
 var questionIndex = 0;
 var count = 0;
 
-var time = 30;
+var time = 10;
 var intervalId;
-
 
 
 //created an array of questions
@@ -34,7 +33,7 @@ var questions = [
         answer: "skin"
     },
     {
-        question: "What is the color property of #FF0000",
+        question: "What is the color property of #FF0000?",
         choices: ["yellow", "blue", "green", "red"],
         answer: "red"
     },
@@ -44,7 +43,7 @@ function start() {
     timerEl.textContent = time;
     intervalId = setInterval(function () {
         time--;
-        timerEl.textContent = time;
+        timerEl.textContent = time + 1;
         if (time <= 0) {
             finishQuiz();
         }
@@ -75,6 +74,10 @@ function nextQuestion() {
     questionIndex++;
     if (questionIndex === questions.length) {
         time = 0;
+        finishQuiz();
+    }
+    if (time <= 0) {
+        finishQuiz();
     }
     buildQuiz();
 }
@@ -94,10 +97,29 @@ function showResults(answer) {
 // added function for the finishquiz
 function finishQuiz() {
     clearInterval(intervalId);
-    var game = document.game;
-    game.innerHTML = " All Done, You have scored " + count;
-}
+    var body = document.body;
+    body.innerHTML = " All Done, You have scored " + count;
 
+        var form = document.createElement("form");
+        form.setAttribute("method", "post");
+        form.setAttribute("action", "submit.php");
+
+        var initials = document.createElement("input");
+        initials.setAttribute("type", "text");
+        initials.setAttribute("placeholder", "Enter your Initials");
+
+        var submit = document.createElement("input");
+        submit.setAttribute("type", "submit");
+        submit.setAttribute("value", "submit");
+
+        form.appendChild(initials);
+        form.appendChild(submit);
+        body.appendChild(form);
+
+};
+
+
+//timer to start
 buttonEl.addEventListener("click", start);
 
 
