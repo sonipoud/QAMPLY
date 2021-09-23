@@ -40,6 +40,14 @@ var questions = [
 
 //function for the timer to start
 function start() {
+    //hide start screen
+    var startScreenEl = document.querySelector("start-screen");
+    startScreenEl.setAttribute("class", "hide");
+
+    //unhide questions section
+    questionsEl.removeAttribute("class");
+
+    //start timer
     timerEl.textContent = time;
     intervalId = setInterval(function () {
         time--;
